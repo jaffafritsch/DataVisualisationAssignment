@@ -93,22 +93,10 @@ def EngineFeatureSplit():
     dfCarData.info()
 
 
-def HotEncode():
-    dfCarData["origin"] = dfCarData['origin'].astype("category").cat.codes
-    dfCarData["condition"] = dfCarData['condition'].astype("category").cat.codes
-    dfCarData["car_model"] = dfCarData['car_model'].astype("category").cat.codes
-    dfCarData["exterior_color"] = dfCarData['exterior_color'].astype("category").cat.codes
-    dfCarData["interior_color"] = dfCarData['interior_color'].astype("category").cat.codes
-    dfCarData["type_of_engine"] = dfCarData['type_of_engine'].astype("category").cat.codes
-    dfCarData["fuel_system"] = dfCarData['fuel_system'].astype("category").cat.codes
-    dfCarData["transmission"] = dfCarData['transmission'].astype("category").cat.codes
-    dfCarData["drive_type"] = dfCarData['drive_type'].astype("category").cat.codes
-    dfCarData["brand"] = dfCarData['brand'].astype("category").cat.codes
-    dfCarData["grade"] = dfCarData['grade'].astype("category").cat.codes
-    mapping = df[['origin', 'origin_code']].drop_duplicates().sort_values('origin_code')
-    print(mapping.to_string(index=False))
-    print(dfCarData.head(10))
-    dfCarData.info()
+EngineFeatureSplit()
+CheckForNulls()
+
+
 
 
 
